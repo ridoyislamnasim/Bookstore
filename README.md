@@ -21,34 +21,37 @@ Follow these steps to set up and run the project locally.
     ```sh
     cd Bookstore/
 3. **Open the Project in Your Code Editor**
-    code .
+    ```sh
+        code .
 4. **Install Project Dependencies**
+    ```sh
     npm i
 
-Database Setup
-Start Apache and MySQL
+### Database Setup
+1. **Start Apache and MySQL**
+    Open XAMPP and start the Apache and MySQL servers.
 
-Open XAMPP and start the Apache and MySQL servers.
-
-Create the Database
-
-Open your web browser and go to phpMyAdmin.
-Create a new database named bookstore.
-Set Up Environment Variables
+2. **Create the Database**
+    *Open your web browser and go to phpMyAdmin.
+    *Create a new database named bookstore.
+3. **Set Up Environment Variables**
 
 Create a .env file in the root of the project and add the following lines:
+    ```sh
 LOCAL_DB_USER=<your_mysql_username>
 LOCAL_DB_PASS=<your_mysql_password> 
 
+
 Replace <your_mysql_username> and <your_mysql_password> with your actual MySQL credentials.
 
-Running the Project
-Start the Development Server
-npm run dev
+## Running the Project
+1. **Start the Development Server**
+   ```sh
+    npm run dev
 
-Testing the API
+## Testing the API
 
-Using Postman
+**Using Postman**
 
-Import the Postman collection file (Bookstore.postman_collection.json) into Postman.
+Import the Postman collection file (Book Store.postman_collection.json) into Postman.
 Open the collection and run the requests to test the API endpoints.
