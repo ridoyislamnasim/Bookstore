@@ -34,15 +34,24 @@ Follow these steps to set up and run the project locally.
 2. **Create the Database**
     *Open your web browser and go to phpMyAdmin.
     *Create a new database named bookstore.
-3. **Set Up Environment Variables**
+### Set Up Environment Variables
 
 Create a .env file in the root of the project and add the following lines:
-    ```sh
+
+    
         LOCAL_DB_USER=<your_mysql_username>
         LOCAL_DB_PASS=<your_mysql_password> 
 
 
 Replace <your_mysql_username> and <your_mysql_password> with your actual MySQL credentials.
+
+  If you haven't set a MySQL password during the installation, you can leave the password field empty.
+
+  The default MySQL username is root.
+Example for default MySQL setup without a password:
+
+    LOCAL_DB_USER=root
+    LOCAL_DB_PASS=
 
 ## Running the Project
 1. **Start the Development Server**
