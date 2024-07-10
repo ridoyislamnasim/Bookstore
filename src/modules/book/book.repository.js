@@ -45,7 +45,6 @@ class BookRepository extends BaseRepository {
 
   }
   async getFilterBook(title){
-    // filter books by title
     const books = await Book.findAll({
        where: { 
         title: { 

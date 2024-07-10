@@ -7,6 +7,7 @@ const authorRouter = Router();
 authorRouter
   .post('/', validateAuthor, controller.createAuthor)
   .get('/', controller.getAllAuthor)
+  .get('/filter', controller.getFilterAuthor)
 
 authorRouter
   .route('/:id')

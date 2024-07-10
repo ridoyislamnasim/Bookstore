@@ -30,6 +30,12 @@ class AuthorService extends BaseService {
     });
     return avatars;
   }
+
+  async getFilterAuthor(name){
+    const author = this.#repository.getFilterAuthor(name);
+    return author;
+  }
+
   async getWrittenSpecificAuthorBook(id){
     const author = this.#repository.getWrittenSpecificAuthorBook(id);
     return author;

@@ -5,9 +5,9 @@ import authorService from './author.service.js';
 class AuthorController {
   createAuthor = catchError(async (req, res, next) => {
     const payload = {
-      name : req.body.name,
-      bio : req.body.bio,
-      birthdate : req.body.birthdate,
+      name: req.body.name,
+      bio: req.body.bio,
+      birthdate: req.body.birthdate,
     }
     const data = await authorService.createAuthor(payload);
     const resDoc = responseHandler(201, 'author create successfully', data);
@@ -16,9 +16,9 @@ class AuthorController {
 
   getAllAuthor = catchError(async (req, res, next) => {
     const query = {
-      page : parseInt(req.query.page) || 1,
-      limit : parseInt(req.query.limit) || 10,
-      order : req.query.order,
+      page: parseInt(req.query.page) || 1,
+      limit: parseInt(req.query.limit) || 10,
+      order: req.query.order,
     }
     const authors = await authorService.getAllAuthor(query);
     const resDoc = responseHandler(200, 'authors get successfully', authors);
@@ -34,12 +34,12 @@ class AuthorController {
   });
 
   updateAuthor = catchError(async (req, res, next) => {
-const payload = {
-  name : req.body.name,
-  bio : req.body.bio,
-  birthdate : req.body.birthdate,
-}
-const id = req.params.id;
+    const payload = {
+      name: req.body.name,
+      bio: req.body.bio,
+      birthdate: req.body.birthdate,
+    }
+    const id = req.params.id;
     await authorService.updateAuthor(id, payload);
     const resDoc = responseHandler(200, 'author update successfully');
     res.status(resDoc.statusCode).json(resDoc);
@@ -47,10 +47,17 @@ const id = req.params.id;
 
   getWrittenSpecificAuthorBook = catchError(async (req, res, next) => {
     const id = req.params.id;
-       const data = await authorService.getWrittenSpecificAuthorBook(id);
-        const resDoc = responseHandler(200, 'specific author get successfully', data );
-        res.status(resDoc.statusCode).json(resDoc);
-      });
+    const data = await authorService.getWrittenSpecificAuthorBook(id);
+    const resDoc = responseHandler(200, 'specific author get successfully', data);
+    res.status(resDoc.statusCode).json(resDoc);
+  });
+
+  getFilterAuthor = catchError(async (req, res, next) => {
+    const { name } = req.query;
+    const authors = await authorService.getFilterAuthor(name);
+    const resDoc = responseHandler(200, 'filter author get successfully', authors);
+    res.status(resDoc.statusCode).json(resDoc);
+  });
 
   deleteAuthor = catchError(async (req, res, next) => {
     const { id } = req.params;

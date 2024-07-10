@@ -1,7 +1,8 @@
 import { Author, Book } from '../../models/index.js';
 import { NotFoundError } from '../../utils/errors.js';
 import BaseRepository from '../base/base.repository.js';
-
+import sequelize from 'sequelize';
+const { Op } = sequelize;
 class AuthorRepository extends BaseRepository {
   #model;
   constructor(model) {
@@ -61,8 +62,17 @@ class AuthorRepository extends BaseRepository {
       where: { id },
     });
     return writtenBooks;
+  }
 
-
+  async getFilterAuthor(name){
+    const books = await Author.findAll({
+       where: { 
+        name: { 
+          [Op.like]: `%${name}%`
+        } 
+      } 
+      });
+    return books;
   }
   
 }
