@@ -1,6 +1,7 @@
 
 import { check, body, validationResult } from 'express-validator';
 import moment from 'moment-timezone';
+import responseHandler from '../../../utils/responseHandler.js';
 ;
 // name bio birthdate
 export const validateAuthor = [
@@ -31,9 +32,9 @@ export const validateAuthor = [
 
         } else {
             console.log(er.mapped())
-            // console.log(maperrors.mapped())
-            res.status(500).json({ errors: maperrors })
-            //   return res.render("room",{errr:er,rooms:""})
+            // res.status(500).json({ errors: maperrors })
+            const resDoc = responseHandler(400, 'author validation error', maperrors);
+            res.status(resDoc.statusCode).json(resDoc);
         }
     }
 ];

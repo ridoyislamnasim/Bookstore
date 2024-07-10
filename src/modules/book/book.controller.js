@@ -21,6 +21,12 @@ class BookController {
     res.status(resDoc.statusCode).json(resDoc);
   });
 
+  getFilterBook = catchError(async (req, res, next) => {
+    const { title } = req.query;
+    const books = await bookService.getFilterBook(title);
+    const resDoc = responseHandler(200, 'filter books get successfully', books);
+    res.status(resDoc.statusCode).json(resDoc);
+  });
 
   getBook = catchError(async (req, res, next) => {
     const { id } = req.params;

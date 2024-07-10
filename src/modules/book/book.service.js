@@ -15,6 +15,10 @@ class BookService extends BaseService {
     const book = this.#repository.updateBook(id, payload);
     return book;
   }
+  async getFilterBook(title){
+    const book = this.#repository.getFilterBook(title);
+    return book;
+  }
   async getSpecificAuthorBook(id){
     const author = this.#repository.getSpecificAuthorBook(id);
     return author;

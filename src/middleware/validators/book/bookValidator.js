@@ -1,6 +1,7 @@
 import { body, validationResult } from 'express-validator';
 import moment from 'moment-timezone';
 import { Author } from '../../../models/index.js';
+import responseHandler from '../../../utils/responseHandler.js';
 
 export const validateBook = [
     body('title')
@@ -36,9 +37,9 @@ export const validateBook = [
     
             } else {
                 console.log(er.mapped())
-                // console.log(maperrors.mapped())
-                res.status(500).json({ errors: maperrors })
-                //   return res.render("room",{errr:er,rooms:""})
+                // res.status(500).json({ errors: maperrors })
+                const resDoc = responseHandler(400, 'book validation error', maperrors);
+                res.status(resDoc.statusCode).json(resDoc);
             }
         }
 ];

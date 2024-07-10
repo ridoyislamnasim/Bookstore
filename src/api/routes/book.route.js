@@ -7,6 +7,7 @@ const bookRouter = Router();
 bookRouter
   .post('/', validateBook, controller.createBook)
   .get('/', controller.getAllBook)
+  .get('/filter', controller.getFilterBook)
 
 bookRouter
   .route('/:id')
