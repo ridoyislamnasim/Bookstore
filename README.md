@@ -38,8 +38,8 @@ Follow these steps to set up and run the project locally.
 
 Create a .env file in the root of the project and add the following lines:
     ```sh
-LOCAL_DB_USER=<your_mysql_username>
-LOCAL_DB_PASS=<your_mysql_password> 
+        LOCAL_DB_USER=<your_mysql_username>
+        LOCAL_DB_PASS=<your_mysql_password> 
 
 
 Replace <your_mysql_username> and <your_mysql_password> with your actual MySQL credentials.
